@@ -50,4 +50,8 @@ urlpatterns = [
     path('unread_queries', unread_queries, name='unread_queries'),
     path('read_queries', read_queries, name='read_queries'),
     path('view_queries/<int:pid>', view_queries, name='view_queries'),
-]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+]
+urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+# +static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

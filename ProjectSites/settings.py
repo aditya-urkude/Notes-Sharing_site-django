@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-sb(a488xa9fnl6^ofw=3fw*5*q1g7j8&+8*-fv4x(l6c8#(mcf'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.vercel.app',"*"]
 
 
 # Application definition
@@ -78,8 +78,12 @@ WSGI_APPLICATION = 'ProjectSites.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'FFbg6EbdC-AcG-F3EAGac6F5eFE3-2f3',
+        'HOST': 'monorail.proxy.rlwy.net',
+        'PORT': '24790',
     }
 }
 
@@ -120,7 +124,9 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR,"static")]
+# STATICFILES_DIRS = [os.path.join(BASE_DIR,"static")]
+STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 
 MEDIA_URL='media/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
